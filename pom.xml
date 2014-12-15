@@ -84,9 +84,16 @@
         </dependency>
 
         <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <version>1.7.0</version>
+            <groupId>com.squareup</groupId>
+            <artifactId>fest-android</artifactId>
+            <version>1.0.8</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.android.support</groupId>
+            <artifactId>support-v4</artifactId>
+            <version>19.0.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

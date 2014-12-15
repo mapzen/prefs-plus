@@ -2,11 +2,11 @@ package com.mapzen.prefsplus;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.preference.ListPreference;
+import android.preference.NumberListPreference;
 import android.util.AttributeSet;
 import android.util.Log;
 
-public class IntListPreference extends ListPreference {
+public class IntListPreference extends NumberListPreference {
     public static final String TAG = IntListPreference.class.getSimpleName();
 
     public IntListPreference(Context context) {

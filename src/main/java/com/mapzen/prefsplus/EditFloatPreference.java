@@ -2,14 +2,14 @@ package com.mapzen.prefsplus;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.preference.EditTextPreference;
+import android.preference.EditNumberPreference;
 import android.util.AttributeSet;
 import android.util.Log;
 
 import static android.text.InputType.TYPE_CLASS_NUMBER;
 import static android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL;
 
-public class EditFloatPreference extends EditTextPreference {
+public class EditFloatPreference extends EditNumberPreference {
     public static final String TAG = EditFloatPreference.class.getSimpleName();
 
     public EditFloatPreference(Context context) {
