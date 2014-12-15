@@ -6,6 +6,10 @@ import android.preference.NumberListPreference;
 import android.util.AttributeSet;
 import android.util.Log;
 
+/**
+ * {@link android.preference.ListPreference} that saves integer values to
+ * {@link android.content.SharedPreferences}.
+ */
 public class IntListPreference extends NumberListPreference {
     public static final String TAG = IntListPreference.class.getSimpleName();
 

@@ -8,6 +8,10 @@ import android.util.Log;
 
 import static android.text.InputType.TYPE_CLASS_NUMBER;
 
+/**
+ * {@link android.preference.DialogPreference} that saves integer values to
+ * {@link android.content.SharedPreferences}.
+ */
 public class EditIntPreference extends EditNumberPreference {
     public static final String TAG = EditIntPreference.class.getSimpleName();
 

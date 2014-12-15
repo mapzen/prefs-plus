@@ -3,6 +3,9 @@ package android.preference;
 import android.content.Context;
 import android.util.AttributeSet;
 
+/**
+ * Wrapper for {@link EditTextPreference} that exposes additional public methods.
+ */
 public class EditNumberPreference extends EditTextPreference {
     public EditNumberPreference(Context context) {
         super(context);

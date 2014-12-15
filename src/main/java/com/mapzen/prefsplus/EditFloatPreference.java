@@ -9,6 +9,10 @@ import android.util.Log;
 import static android.text.InputType.TYPE_CLASS_NUMBER;
 import static android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL;
 
+/**
+ * {@link android.preference.DialogPreference} that saves float values to
+ * {@link android.content.SharedPreferences}.
+ */
 public class EditFloatPreference extends EditNumberPreference {
     public static final String TAG = EditFloatPreference.class.getSimpleName();
 

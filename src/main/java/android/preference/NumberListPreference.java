@@ -3,6 +3,9 @@ package android.preference;
 import android.content.Context;
 import android.util.AttributeSet;
 
+/**
+ * Wrapper for {@link ListPreference} that exposes additional public methods.
+ */
 public class NumberListPreference extends ListPreference {
     public NumberListPreference(Context context) {
         super(context);
