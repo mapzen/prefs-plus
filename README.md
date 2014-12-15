@@ -1,5 +1,5 @@
-Prefs Plus
-==========
+Prefs+
+======
 
 Extension for Android preferences that creates additional preference types including `EditIntPreference`, `EditFloatPreference`, and `IntListPreference`.
 
