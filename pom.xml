@@ -11,8 +11,15 @@
     </parent>
 
     <groupId>com.mapzen.android</groupId>
-    <artifactId>prefs-plus</artifactId>
+    <artifactId>prefs-plus-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>Prefs+ Parent</name>
+
+    <modules>
+        <module>prefs-plus</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -60,42 +67,5 @@
             </plugin>
         </plugins>
     </build>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.google.android</groupId>
-            <artifactId>android</artifactId>
-            <version>4.1.1.4</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.robolectric</groupId>
-            <artifactId>robolectric</artifactId>
-            <version>2.4</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.squareup</groupId>
-            <artifactId>fest-android</artifactId>
-            <version>1.0.8</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.android.support</groupId>
-            <artifactId>support-v4</artifactId>
-            <version>19.0.1</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
 
 </project>
