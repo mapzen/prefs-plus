@@ -9,7 +9,8 @@ Displays the current value in the summary (subtitle) of each preference view.
 
 **Example**
 
-```java
+*preferences.xml*
+```xml
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <com.mapzen.prefsplus.EditIntPreference
@@ -31,3 +32,19 @@ Displays the current value in the summary (subtitle) of each preference view.
 
 </PreferenceScreen>
 ```
+
+*EditIntPreference*
+
+![EditIntPreference](https://github.com/ecgreb/prefs-plus/blob/master/screenshots/screenshot_0.png)
+
+*EditFloatPreference*
+
+![EditFloatPreference](https://github.com/ecgreb/prefs-plus/blob/master/screenshots/screenshot_1.png)
+
+*IntListPreference*
+
+![IntListPreference](https://github.com/ecgreb/prefs-plus/blob/master/screenshots/screenshot_2.png)
+
+*PreferenceFragment*
+
+![IntListPreference](https://github.com/ecgreb/prefs-plus/blob/master/screenshots/screenshot_3.png)
