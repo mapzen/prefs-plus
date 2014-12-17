@@ -5,6 +5,8 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.util.Log;
 
+import java.util.Arrays;
+
 /**
  * {@link android.preference.ListPreference} that saves integer values to
  * {@link android.content.SharedPreferences}.
@@ -41,14 +43,13 @@ public class IntListPreference extends AbstractListPreference {
             return false;
         }
 
-        setSummary(value);
+        final int valueIndex = Arrays.asList(getEntryValues()).indexOf(value);
+        setSummary(getEntries()[valueIndex]);
         return persistInt(intValue);
     }
 
     @Override
     protected Object onGetDefaultValue(TypedArray a, int index) {
-        final String s = Integer.decode(a.getString(index)).toString();
-        setSummary(s);
-        return s;
+        return Integer.decode(a.getString(index)).toString();
     }
 }

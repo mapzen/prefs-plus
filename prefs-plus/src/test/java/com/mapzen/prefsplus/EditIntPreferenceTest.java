@@ -104,12 +104,4 @@ public class EditIntPreferenceTest {
         typedArray.putString(0, "0x00000001");
         assertThat(editIntPreference.onGetDefaultValue(typedArray, 0)).isEqualTo("1");
     }
-
-    @Test
-    public void onGetDefaultValue_shouldSetValueAsSummary() throws Exception {
-        TestTypedArray typedArray = new TestTypedArray();
-        typedArray.putString(0, "1");
-        editIntPreference.onGetDefaultValue(typedArray, 0);
-        assertThat(editIntPreference).hasSummary("1");
-    }
 }

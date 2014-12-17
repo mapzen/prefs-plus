@@ -103,10 +103,9 @@ public class EditFloatPreferenceTest {
     }
 
     @Test
-    public void onGetDefaultValue_shouldSetValueAsSummary() throws Exception {
+    public void onGetDefaultValue_shouldFormatFloat() throws Exception {
         TestTypedArray typedArray = new TestTypedArray();
-        typedArray.putString(0, "1.0");
-        editFloatPreference.onGetDefaultValue(typedArray, 0);
-        assertThat(editFloatPreference).hasSummary("1.0");
+        typedArray.putString(0, "1");
+        assertThat(editFloatPreference.onGetDefaultValue(typedArray, 0)).isEqualTo("1.0");
     }
 }

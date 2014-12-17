@@ -57,8 +57,6 @@ public class EditFloatPreference extends AbstractFloatPreference {
 
     @Override
     protected Object onGetDefaultValue(TypedArray a, int index) {
-        final String s = Float.valueOf(a.getString(index)).toString();
-        setSummary(s);
-        return s;
+        return Float.valueOf(a.getString(index)).toString();
     }
 }

@@ -20,6 +20,9 @@ import static org.robolectric.Robolectric.application;
 @Config(manifest = Config.NONE)
 @RunWith(RobolectricTestRunner.class)
 public class IntListPreferenceTest {
+    private static final CharSequence[] ENTRIES = {"Zero", "One", "Two", "Three"};
+    private static final CharSequence[] ENTRY_VALUES = {"0", "1", "2", "3"};
+
     private IntListPreference intListPreference;
     private SharedPreferences prefs;
 
@@ -28,6 +31,8 @@ public class IntListPreferenceTest {
         intListPreference = new IntListPreference(Robolectric.application);
         intListPreference.setKey("key");
         intListPreference.setPersistent(true);
+        intListPreference.setEntries(ENTRIES);
+        intListPreference.setEntryValues(ENTRY_VALUES);
         prefs = PreferenceManager.getDefaultSharedPreferences(application);
         intListPreference.onAttachedToHierarchy(new TestPreferenceManager(prefs));
     }
@@ -68,9 +73,9 @@ public class IntListPreferenceTest {
     }
 
     @Test
-    public void persistString_shouldSetValueAsSummary() throws Exception {
+    public void persistString_shouldSetEntryAsSummary() throws Exception {
         intListPreference.persistString("1");
-        assertThat(intListPreference).hasSummary("1");
+        assertThat(intListPreference).hasSummary("One");
     }
 
     @Test
@@ -78,13 +83,5 @@ public class IntListPreferenceTest {
         TestTypedArray typedArray = new TestTypedArray();
         typedArray.putString(0, "0x00000001");
         assertThat(intListPreference.onGetDefaultValue(typedArray, 0)).isEqualTo("1");
-    }
-
-    @Test
-    public void onGetDefaultValue_shouldSetValueAsSummary() throws Exception {
-        TestTypedArray typedArray = new TestTypedArray();
-        typedArray.putString(0, "1");
-        intListPreference.onGetDefaultValue(typedArray, 0);
-        assertThat(intListPreference).hasSummary("1");
     }
 }

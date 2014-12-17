@@ -56,8 +56,6 @@ public class EditIntPreference extends AbstractIntPreference {
 
     @Override
     protected Object onGetDefaultValue(TypedArray a, int index) {
-        final String s = Integer.decode(a.getString(index)).toString();
-        setSummary(s);
-        return s;
+        return Integer.decode(a.getString(index)).toString();
     }
 }
