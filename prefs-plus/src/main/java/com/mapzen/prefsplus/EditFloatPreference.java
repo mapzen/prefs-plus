@@ -48,7 +48,8 @@ public class EditFloatPreference extends EditNumberPreference {
             floatValue = Float.valueOf(value);
         } catch (NumberFormatException e) {
             Log.e(TAG, "Unable to parse preference value: " + value);
-            return true;
+            setSummary("Invalid value");
+            return false;
         }
 
         setSummary(Float.toString(floatValue));

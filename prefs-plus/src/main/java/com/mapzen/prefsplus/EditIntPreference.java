@@ -47,7 +47,8 @@ public class EditIntPreference extends EditNumberPreference {
             intValue = Integer.valueOf(value);
         } catch (NumberFormatException e) {
             Log.e(TAG, "Unable to parse preference value: " + value);
-            return true;
+            setSummary("Invalid value");
+            return false;
         }
 
         setSummary(value);
