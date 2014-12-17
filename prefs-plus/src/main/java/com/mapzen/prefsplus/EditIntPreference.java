@@ -2,7 +2,6 @@ package com.mapzen.prefsplus;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.preference.EditNumberPreference;
 import android.util.AttributeSet;
 import android.util.Log;
 
@@ -12,7 +11,7 @@ import static android.text.InputType.TYPE_CLASS_NUMBER;
  * {@link android.preference.DialogPreference} that saves integer values to
  * {@link android.content.SharedPreferences}.
  */
-public class EditIntPreference extends EditNumberPreference {
+public class EditIntPreference extends AbstractIntPreference {
     public static final String TAG = EditIntPreference.class.getSimpleName();
 
     public EditIntPreference(Context context) {

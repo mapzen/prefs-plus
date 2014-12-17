@@ -82,7 +82,7 @@ public class EditIntPreferenceTest {
     @Test
     public void persistString_shouldDisplaySummaryAlertForInvalidValue() throws Exception {
         editIntPreference.persistString("NAN");
-        assertThat(editIntPreference).hasSummary("Error! Invalid value");
+        assertThat(editIntPreference).hasSummary("Invalid value");
     }
 
     @Test

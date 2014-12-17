@@ -64,7 +64,7 @@ public class IntListPreferenceTest {
     @Test
     public void persistString_shouldDisplaySummaryAlertForInvalidValue() throws Exception {
         intListPreference.persistString("NAN");
-        assertThat(intListPreference).hasSummary("Error! Invalid value");
+        assertThat(intListPreference).hasSummary("Invalid value");
     }
 
     @Test

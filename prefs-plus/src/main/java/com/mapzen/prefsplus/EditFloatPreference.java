@@ -2,7 +2,6 @@ package com.mapzen.prefsplus;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.preference.EditNumberPreference;
 import android.util.AttributeSet;
 import android.util.Log;
 
@@ -13,7 +12,7 @@ import static android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL;
  * {@link android.preference.DialogPreference} that saves float values to
  * {@link android.content.SharedPreferences}.
  */
-public class EditFloatPreference extends EditNumberPreference {
+public class EditFloatPreference extends AbstractFloatPreference {
     public static final String TAG = EditFloatPreference.class.getSimpleName();
 
     public EditFloatPreference(Context context) {

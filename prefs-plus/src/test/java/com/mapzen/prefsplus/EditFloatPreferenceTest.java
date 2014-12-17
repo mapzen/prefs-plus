@@ -87,7 +87,7 @@ public class EditFloatPreferenceTest {
     @Test
     public void persistString_shouldDisplaySummaryAlertForInvalidValue() throws Exception {
         editFloatPreference.persistString("NAN");
-        assertThat(editFloatPreference).hasSummary("Error! Invalid value");
+        assertThat(editFloatPreference).hasSummary("Invalid value");
     }
 
     @Test

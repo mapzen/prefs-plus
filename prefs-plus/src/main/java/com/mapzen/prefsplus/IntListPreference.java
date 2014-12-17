@@ -2,7 +2,6 @@ package com.mapzen.prefsplus;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.preference.NumberListPreference;
 import android.util.AttributeSet;
 import android.util.Log;
 
@@ -10,7 +9,7 @@ import android.util.Log;
  * {@link android.preference.ListPreference} that saves integer values to
  * {@link android.content.SharedPreferences}.
  */
-public class IntListPreference extends NumberListPreference {
+public class IntListPreference extends AbstractListPreference {
     public static final String TAG = IntListPreference.class.getSimpleName();
 
     public IntListPreference(Context context) {
