@@ -6,10 +6,13 @@
     <string name="title">Preference Values</string>
     <string name="integer_key">int_key</string>
     <string name="integer_title">Integer</string>
+    <string name="integer_dialog_title">Enter an integer value</string>
     <string name="float_key">float_key</string>
     <string name="float_title">Float</string>
+    <string name="float_dialog_title">Enter a float value</string>
     <string name="integer_list_key">int_list_key</string>
     <string name="integer_list_title">Integer List</string>
+    <string name="integer_list_dialog_title">Select from the following list</string>
     <string name="hint">Update current values via Settings</string>
 
 </resources>
