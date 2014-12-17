@@ -13,6 +13,9 @@
     <string name="integer_list_key">int_list_key</string>
     <string name="integer_list_title">Integer List</string>
     <string name="integer_list_dialog_title">Select from the following list</string>
+    <string name="text_key">text_key</string>
+    <string name="text_title">Text</string>
+    <string name="text_dialog_title">Enter a string</string>
     <string name="hint">Update current values via Settings</string>
 
 </resources>

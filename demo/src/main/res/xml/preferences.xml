@@ -22,4 +22,10 @@
         android:entryValues="@array/int_list_values"
         android:defaultValue="@integer/integer_list_default_value" />
 
+    <com.mapzen.prefsplus.EditTextPlusPreference
+        android:key="@string/text_key"
+        android:title="@string/text_title"
+        android:dialogTitle="@string/text_dialog_title"
+        android:defaultValue="@string/text_default_value" />
+
 </PreferenceScreen>

@@ -3,4 +3,5 @@
     <integer name="integer_default_value">0</integer>
     <integer name="float_default_value">0</integer>
     <integer name="integer_list_default_value">0</integer>
+    <string name="text_default_value">default</string>
 </resources>

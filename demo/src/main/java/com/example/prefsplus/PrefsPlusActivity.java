@@ -55,10 +55,12 @@ public class PrefsPlusActivity extends Activity {
         private TextView integerTextView;
         private TextView floatTextView;
         private TextView integerListTextView;
+        private TextView textTextView;
 
         private int intValue;
         private float floatValue;
         private int intListValue;
+        private String textValue;
 
         private SharedPreferences prefs;
         private Resources res;
@@ -70,6 +72,7 @@ public class PrefsPlusActivity extends Activity {
             integerTextView = (TextView) view.findViewById(R.id.integer_value);
             floatTextView = (TextView) view.findViewById(R.id.float_value);
             integerListTextView = (TextView) view.findViewById(R.id.integer_list_value);
+            textTextView = (TextView) view.findViewById(R.id.text_value);
             prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
             res = getResources();
             return view;
@@ -84,10 +87,13 @@ public class PrefsPlusActivity extends Activity {
                     res.getInteger(R.integer.integer_default_value));
             intListValue = prefs.getInt(res.getString(R.string.integer_list_key),
                     res.getInteger(R.integer.integer_default_value));
+            textValue = prefs.getString(res.getString(R.string.text_key),
+                    res.getString(R.string.text_default_value));
 
             integerTextView.setText(Integer.toString(intValue));
             floatTextView.setText(Float.toString(floatValue));
             integerListTextView.setText(Integer.toString(intListValue));
+            textTextView.setText(textValue);
         }
     }
 }
