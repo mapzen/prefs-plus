@@ -7,9 +7,9 @@ Values entered by the user are validated, parsed, and stored as the correct prim
 
 Displays the current value in the summary (subtitle) of each preference view.
 
-**Example**
+## Example
 
-*preferences.xml*
+### preferences.xml
 ```xml
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -33,18 +33,18 @@ Displays the current value in the summary (subtitle) of each preference view.
 </PreferenceScreen>
 ```
 
-*EditIntPreference*
+### EditIntPreference
 
 ![EditIntPreference](https://github.com/ecgreb/prefs-plus/blob/master/screenshots/screenshot_0.png)
 
-*EditFloatPreference*
+### EditFloatPreference
 
 ![EditFloatPreference](https://github.com/ecgreb/prefs-plus/blob/master/screenshots/screenshot_1.png)
 
-*IntListPreference*
+### IntListPreference
 
 ![IntListPreference](https://github.com/ecgreb/prefs-plus/blob/master/screenshots/screenshot_2.png)
 
-*PreferenceFragment*
+### PreferenceFragment
 
 ![IntListPreference](https://github.com/ecgreb/prefs-plus/blob/master/screenshots/screenshot_3.png)
