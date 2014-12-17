@@ -9,6 +9,7 @@ import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowLog;
 
 import android.content.SharedPreferences;
+import android.content.res.TestTypedArray;
 import android.preference.PreferenceManager;
 import android.preference.TestPreferenceManager;
 
@@ -81,5 +82,25 @@ public class EditFloatPreferenceTest {
     public void persistString_shouldLogErrorForInvalidValue() throws Exception {
         editFloatPreference.persistString("NAN");
         assertThat(ShadowLog.getLogs().get(0).msg).contains("Unable to parse preference value");
+    }
+
+    @Test
+    public void persistString_shouldSetValueAsSummary() throws Exception {
+        editFloatPreference.persistString("1.0");
+        assertThat(editFloatPreference).hasSummary("1.0");
+    }
+
+    @Test
+    public void persistString_shouldConvertIntToFloat() throws Exception {
+        editFloatPreference.persistString("1");
+        assertThat(editFloatPreference).hasSummary("1.0");
+    }
+
+    @Test
+    public void onGetDefaultValue_shouldSetValueAsSummary() throws Exception {
+        TestTypedArray typedArray = new TestTypedArray();
+        typedArray.putString(0, "1.0");
+        editFloatPreference.onGetDefaultValue(typedArray, 0);
+        assertThat(editFloatPreference).hasSummary("1.0");
     }
 }

@@ -41,18 +41,14 @@ public class IntListPreference extends NumberListPreference {
             return true;
         }
 
+        setSummary(value);
         return persistInt(intValue);
     }
 
     @Override
     protected Object onGetDefaultValue(TypedArray a, int index) {
-        final String s = a.getString(index);
-
-        // Workaround for Robolectric which loads integer resources as hex strings.
-        if (s.startsWith("0x")) {
-            return Integer.valueOf(s.substring(2), 16).toString();
-        }
-
+        final String s = Integer.decode(a.getString(index)).toString();
+        setSummary(s);
         return s;
     }
 }

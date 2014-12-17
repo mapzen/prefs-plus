@@ -8,6 +8,7 @@ import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowLog;
 
 import android.content.SharedPreferences;
+import android.content.res.TestTypedArray;
 import android.preference.PreferenceManager;
 import android.preference.TestPreferenceManager;
 
@@ -76,5 +77,33 @@ public class EditIntPreferenceTest {
     public void persistString_shouldLogErrorForInvalidValue() throws Exception {
         editIntPreference.persistString("NAN");
         assertThat(ShadowLog.getLogs().get(0).msg).contains("Unable to parse preference value");
+    }
+
+    @Test
+    public void persistString_shouldSetValueAsSummary() throws Exception {
+        editIntPreference.persistString("1");
+        assertThat(editIntPreference).hasSummary("1");
+    }
+
+    @Test
+    public void onGetDefaultValue_shouldReturnValueAsString() throws Exception {
+        TestTypedArray typedArray = new TestTypedArray();
+        typedArray.putString(0, "1");
+        assertThat(editIntPreference.onGetDefaultValue(typedArray, 0)).isEqualTo("1");
+    }
+
+    @Test
+    public void onGetDefaultValue_shouldConvertHexValue() throws Exception {
+        TestTypedArray typedArray = new TestTypedArray();
+        typedArray.putString(0, "0x00000001");
+        assertThat(editIntPreference.onGetDefaultValue(typedArray, 0)).isEqualTo("1");
+    }
+
+    @Test
+    public void onGetDefaultValue_shouldSetValueAsSummary() throws Exception {
+        TestTypedArray typedArray = new TestTypedArray();
+        typedArray.putString(0, "1");
+        editIntPreference.onGetDefaultValue(typedArray, 0);
+        assertThat(editIntPreference).hasSummary("1");
     }
 }

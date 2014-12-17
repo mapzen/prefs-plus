@@ -51,11 +51,14 @@ public class EditFloatPreference extends EditNumberPreference {
             return true;
         }
 
+        setSummary(Float.toString(floatValue));
         return persistFloat(floatValue);
     }
 
     @Override
     protected Object onGetDefaultValue(TypedArray a, int index) {
-        return a.getString(index);
+        final String s = Float.valueOf(a.getString(index)).toString();
+        setSummary(s);
+        return s;
     }
 }
