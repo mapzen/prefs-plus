@@ -35,16 +35,16 @@ Displays the current value in the summary (subtitle) of each preference view.
 
 ### EditIntPreference
 
-![EditIntPreference](https://github.com/ecgreb/prefs-plus/blob/master/screenshots/screenshot_0.png)
+![EditIntPreference](https://github.com/mapzen/prefs-plus/blob/master/screenshots/screenshot_0.png)
 
 ### EditFloatPreference
 
-![EditFloatPreference](https://github.com/ecgreb/prefs-plus/blob/master/screenshots/screenshot_1.png)
+![EditFloatPreference](https://github.com/mapzen/prefs-plus/blob/master/screenshots/screenshot_1.png)
 
 ### IntListPreference
 
-![IntListPreference](https://github.com/ecgreb/prefs-plus/blob/master/screenshots/screenshot_2.png)
+![IntListPreference](https://github.com/mapzen/prefs-plus/blob/master/screenshots/screenshot_2.png)
 
 ### PreferenceFragment
 
-![IntListPreference](https://github.com/ecgreb/prefs-plus/blob/master/screenshots/screenshot_3.png)
+![IntListPreference](https://github.com/mapzen/prefs-plus/blob/master/screenshots/screenshot_3.png)
