@@ -19,7 +19,7 @@
 
     <modules>
         <module>prefs-plus</module>
-        <module>demo</module>
+        <module>prefs-plus-demo</module>
     </modules>
 
     <properties>
