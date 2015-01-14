@@ -1,13 +1,13 @@
 Prefs+
 ======
 
-Extension for Android preferences that creates additional preference types including `EditIntPreference`, `EditFloatPreference`, and `IntListPreference`.
+An extension for Android preferences that creates additional preference types including `EditIntPreference`, `EditFloatPreference`, and `IntListPreference`.
 
 Values entered by the user are validated, parsed, and stored as the correct primitive type in `SharedPreferences`.
 
 The current value is displayed in the summary (subtitle) of each preference view.
 
-Extends `EditTextPreference` with `EditTextPlusPreference` to display the current value as summary for string preferences too.
+This project also provides an extended version of `EditTextPreference` called `EditTextPlusPreference` that displays the current value in the summary for string preferences too.
 
 ## Usage
 
