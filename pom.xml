@@ -10,7 +10,7 @@
 
     <groupId>com.mapzen.android</groupId>
     <artifactId>prefs-plus-parent</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Prefs+ Parent</name>
@@ -29,7 +29,7 @@
         <url>http://github.com/mapzen/prefs-plus</url>
         <connection>scm:git:git://github.com/mapzen/prefs-plus.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/mapzen/prefs-plus.git</developerConnection>
-        <tag>prefs-plus-parent-1.0.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <issueManagement>

@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.mapzen.android</groupId>
         <artifactId>prefs-plus-parent</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>prefs-plus</artifactId>
