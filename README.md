@@ -9,7 +9,7 @@ The current value is displayed in the summary (subtitle) of each preference view
 
 Extends `EditTextPreference` with `EditTextPlusPreference` to display the current value as summary for string preferences too.
 
-## Example
+## Usage
 
 ### preferences.xml
 ```xml
@@ -63,3 +63,31 @@ Extends `EditTextPreference` with `EditTextPlusPreference` to display the curren
 ### EditTextPlusPreference
 
 ![EditTextPlusPreference](https://github.com/mapzen/prefs-plus/blob/master/screenshots/text.png)
+
+## Install
+
+### Download Jar
+
+Download the [latest JAR][1].
+
+### Maven
+
+Include dependency using Maven.
+
+```xml
+<dependency>
+  <groupId>com.mapzen.android</groupId>
+  <artifactId>prefs-plus</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
+
+### Gradle
+
+Include dependency using Gradle.
+
+```groovy
+compile 'com.mapzen.android:prefs-plus:1.0.0'
+```
+
+[1]: http://search.maven.org/remotecontent?filepath=com/mapzen/android/prefs-plus/1.0.0/prefs-plus-1.0.0.jar
