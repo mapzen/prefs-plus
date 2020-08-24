@@ -1,6 +1,5 @@
 package com.example.prefsplus;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
@@ -15,7 +14,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class PrefsPlusActivity extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class PrefsPlusActivity extends AppCompatActivity {
     private PrefsPlusFragment fragment;
 
     @Override
