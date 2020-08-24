@@ -1,3 +1,2 @@
 include ':prefs-plus'
 include ':prefs-plus-demo'
-rootProject.name = "prefs-plus"
