@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 /**
  * Wrapper for {@link android.preference.ListPreference} that exposes additional methods.
  */
+@SuppressWarnings("deprecation")
 public abstract class AbstractListPreference extends ListPreference {
     public AbstractListPreference(Context context) {
         super(context);

@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 /**
  * Wrapper for {@link android.preference.EditTextPreference} that exposes additional methods.
  */
+@SuppressWarnings("deprecation")
 public abstract class AbstractFloatPreference extends EditTextPreference {
     public AbstractFloatPreference(Context context) {
         super(context);

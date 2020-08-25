@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 /**
  * Wrapper for {@link android.preference.EditTextPreference} that exposes additional methods.
  */
+@SuppressWarnings("deprecation")
 public abstract class AbstractIntPreference extends EditTextPreference {
     public AbstractIntPreference(Context context) {
         super(context);
