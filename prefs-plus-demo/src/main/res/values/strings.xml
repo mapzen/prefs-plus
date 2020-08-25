@@ -3,6 +3,7 @@
 
     <string name="app_name">Prefs+ Demo</string>
     <string name="settings">Settings</string>
+    <string name="settingsX">SettingsX</string>
     <string name="title">Preference Values</string>
     <string name="integer_key">int_key</string>
     <string name="integer_title">Integer</string>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.mapzen.prefsplusx.EditIntPreference
+        android:key="@string/integer_key"
+        android:title="@string/integer_title"
+        android:dialogTitle="@string/integer_dialog_title"
+        android:defaultValue="@integer/integer_default_value" />
+
+    <com.mapzen.prefsplusx.EditFloatPreference
+        android:key="@string/float_key"
+        android:title="@string/float_title"
+        android:dialogTitle="@string/float_dialog_title"
+        android:defaultValue="@integer/float_default_value" />
+
+    <com.mapzen.prefsplusx.IntListPreference
+        android:key="@string/integer_list_key"
+        android:title="@string/integer_list_title"
+        android:dialogTitle="@string/integer_list_dialog_title"
+        android:entries="@array/int_list_entries"
+        android:entryValues="@array/int_list_values"
+        android:defaultValue="@integer/integer_list_default_value" />
+
+    <com.mapzen.prefsplusx.EditTextPlusPreference
+        android:key="@string/text_key"
+        android:title="@string/text_title"
+        android:dialogTitle="@string/text_dialog_title"
+        android:defaultValue="@string/text_default_value" />
+
+</androidx.preference.PreferenceScreen>

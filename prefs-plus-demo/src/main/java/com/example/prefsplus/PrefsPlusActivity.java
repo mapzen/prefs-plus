@@ -1,7 +1,5 @@
 package com.example.prefsplus;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -15,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 public class PrefsPlusActivity extends AppCompatActivity {
     private PrefsPlusFragment fragment;
@@ -22,7 +22,7 @@ public class PrefsPlusActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final FragmentManager fragmentManager = getFragmentManager();
+        final FragmentManager fragmentManager = getSupportFragmentManager();
         fragment = new PrefsPlusFragment();
         fragmentManager.beginTransaction()
                 .add(android.R.id.content, fragment, PrefsPlusFragment.TAG)
@@ -47,7 +47,9 @@ public class PrefsPlusActivity extends AppCompatActivity {
     }
 
     private void onSettingsOptionSelected() {
+        // Either the new or old preference class
         startActivity(new Intent(this, SettingsActivity.class));
+        //startActivity(new Intent(this, SettingsActivityX.class));
     }
 
     public static class PrefsPlusFragment extends Fragment {
