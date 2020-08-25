@@ -36,4 +36,9 @@ public abstract class AbstractFloatPreference extends EditTextPreference {
     protected float getPersistedFloat(float defaultReturnValue) {
         return super.getPersistedFloat(defaultReturnValue);
     }
+
+    /*@Override
+    protected boolean persistString(String value){
+        throw new RuntimeException("Only persist the type we are using here");
+    }*/
 }
