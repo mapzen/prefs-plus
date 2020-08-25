@@ -8,7 +8,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 /**
- * Settings Activity
+ * Settings Activity that uses the old preferences
  */
 public class SettingsActivity extends AppCompatActivity {
     @Override

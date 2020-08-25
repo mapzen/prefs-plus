@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceFragmentCompat;
 
 /**
- * Settings Activity
+ * Settings Activity that uses the new preferences (PreferenceFragmentCompat)
  */
 public class SettingsActivityX extends AppCompatActivity {
     @Override

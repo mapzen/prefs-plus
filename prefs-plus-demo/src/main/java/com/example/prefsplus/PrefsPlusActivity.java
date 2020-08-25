@@ -48,8 +48,8 @@ public class PrefsPlusActivity extends AppCompatActivity {
 
     private void onSettingsOptionSelected() {
         // Either the new or old preference class
-        startActivity(new Intent(this, SettingsActivity.class));
-        //startActivity(new Intent(this, SettingsActivityX.class));
+        //startActivity(new Intent(this, SettingsActivity.class));
+        startActivity(new Intent(this, SettingsActivityX.class));
     }
 
     public static class PrefsPlusFragment extends Fragment {

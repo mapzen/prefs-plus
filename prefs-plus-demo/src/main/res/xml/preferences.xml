@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<android.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <com.mapzen.prefsplus.EditIntPreference
         android:key="@string/integer_key"
@@ -28,4 +28,4 @@
         android:dialogTitle="@string/text_dialog_title"
         android:defaultValue="@string/text_default_value" />
 
-</PreferenceScreen>
+</android.preference.PreferenceScreen>
