@@ -1,6 +1,15 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.Consti10'
+
+repositories {
+    mavenCentral()
+    google()
+    jcenter()
+    maven { url "https://jitpack.io" }
+}
+
+group = 'com.github.Consti10'
+version = '1.X'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
