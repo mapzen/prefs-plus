@@ -2,12 +2,12 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
 // For some reason jitpack needs this declaration also ?!
-repositories {
-    mavenCentral()
-    google()
-    jcenter()
-    maven { url "https://jitpack.io" }
-}
+//repositories {
+//    mavenCentral()
+//    google()
+//    jcenter()
+//    maven { url "https://jitpack.io" }
+//}
 
 group = 'com.github.Consti10'
 
