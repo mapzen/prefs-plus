@@ -7,15 +7,16 @@ import android.util.Log;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
+import androidx.preference.EditTextPreference;
 
 import static android.text.InputType.TYPE_CLASS_NUMBER;
 import static android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL;
 
 /**
- * {@link android.preference.DialogPreference} that saves float values to
+ * {@link androidx.preference.EditTextPreference} that saves float values to
  * {@link android.content.SharedPreferences}.
  */
-public class EditFloatPreference extends EditTextPlusPreference {
+public class EditFloatPreference extends EditTextPreference {
     public static final String TAG = EditFloatPreference.class.getSimpleName();
 
     public EditFloatPreference(Context context) {
@@ -56,7 +57,7 @@ public class EditFloatPreference extends EditTextPlusPreference {
     protected boolean persistString(String value) {
         float floatValue;
         try {
-            floatValue = Float.valueOf(value);
+            floatValue = Float.parseFloat(value);
         } catch (NumberFormatException e) {
             Log.e(TAG, "Unable to parse preference value: " + value);
             setSummary("Invalid value");

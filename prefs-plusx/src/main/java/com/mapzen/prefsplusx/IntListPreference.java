@@ -10,7 +10,7 @@ import androidx.preference.ListPreference;
 import java.util.Arrays;
 
 /**
- * {@link android.preference.ListPreference} that saves integer values to
+ * {@link androidx.preference.ListPreference} that saves integer values to
  * {@link android.content.SharedPreferences}.
  */
 public class IntListPreference extends ListPreference {
@@ -38,7 +38,7 @@ public class IntListPreference extends ListPreference {
     protected boolean persistString(String value) {
         int intValue;
         try {
-            intValue = Integer.valueOf(value);
+            intValue = Integer.parseInt(value);
         } catch (NumberFormatException e) {
             Log.e(TAG, "Unable to parse preference value: " + value);
             setSummary("Invalid value");

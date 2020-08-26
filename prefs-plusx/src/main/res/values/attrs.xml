@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <attr name="minIntValue" format="integer" />
+    <attr name="maxIntValue" format="integer" />
+
+
+    <declare-styleable name="EditIntPreference">
+        <attr name="minIntValue" />
+        <attr name="maxIntValue" />
+    </declare-styleable>
+
+
+</resources>
