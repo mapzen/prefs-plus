@@ -5,11 +5,17 @@
     <attr name="minIntValue" format="integer" />
     <attr name="maxIntValue" format="integer" />
 
+    <attr name="minFloatValue" format="float" />
+    <attr name="maxFloatValue" format="float" />
 
     <declare-styleable name="EditIntPreference">
         <attr name="minIntValue" />
         <attr name="maxIntValue" />
     </declare-styleable>
 
+    <declare-styleable name="EditFloatPreference">
+        <attr name="minFloatValue" />
+        <attr name="maxFloatValue" />
+    </declare-styleable>
 
 </resources>

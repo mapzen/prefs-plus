@@ -42,6 +42,7 @@ public class EditIntPreference extends EditTextPreference {
             minimumValue=a.getInteger(R.styleable.EditIntPreference_minIntValue,Integer.MIN_VALUE);
             maximumValue=a.getInteger(R.styleable.EditIntPreference_maxIntValue,Integer.MAX_VALUE);
             Log.d(TAG,"Min & max"+minimumValue+" "+maximumValue);
+            a.recycle();
         }
         super.setOnBindEditTextListener(new OnBindEditTextListener() {
             @Override
@@ -77,7 +78,6 @@ public class EditIntPreference extends EditTextPreference {
             setSummary("Invalid value");
             return false;
         }
-
         setSummary(value);
         return persistInt(intValue);
     }

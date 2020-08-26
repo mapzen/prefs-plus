@@ -18,23 +18,33 @@ import static android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL;
  */
 public class EditFloatPreference extends EditTextPreference {
     public static final String TAG = EditFloatPreference.class.getSimpleName();
+    private float minimumValue=Float.MIN_VALUE;
+    private float maximumValue=Float.MAX_VALUE;
 
     public EditFloatPreference(Context context) {
         super(context);
-        init();
+        init(null,0);
     }
 
     public EditFloatPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
+        init(attrs,0);
     }
 
     public EditFloatPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init();
+        init(attrs,defStyle);
     }
 
-    private void init(){
+    private void init(AttributeSet attrs, int defStyle){
+        if(attrs!=null){
+            TypedArray a = getContext().getTheme().obtainStyledAttributes(
+                    attrs, R.styleable.EditIntPreference, defStyle, defStyle);
+            minimumValue=a.getFloat(R.styleable.EditFloatPreference_minFloatValue,Float.MIN_VALUE);
+            maximumValue=a.getFloat(R.styleable.EditFloatPreference_maxFloatValue,Float.MAX_VALUE);
+            Log.d(TAG,"Min & max"+minimumValue+" "+maximumValue);
+            a.recycle();
+        }
         super.setOnBindEditTextListener(new OnBindEditTextListener() {
             @Override
             public void onBindEditText(@NonNull EditText editText) {
@@ -58,6 +68,12 @@ public class EditFloatPreference extends EditTextPreference {
         float floatValue;
         try {
             floatValue = Float.parseFloat(value);
+            if(floatValue<minimumValue || floatValue>maximumValue){
+                final String allowedRange="["+minimumValue+","+maximumValue+"]";
+                Log.e(TAG, "Value is not in range: "+allowedRange+" " + value);
+                setSummary("Invalid value.Select "+allowedRange);
+                return false;
+            }
         } catch (NumberFormatException e) {
             Log.e(TAG, "Unable to parse preference value: " + value);
             setSummary("Invalid value");
