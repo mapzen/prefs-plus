@@ -24,10 +24,6 @@
         </activity>
 
         <activity
-            android:label="@string/settings"
-            android:name=".SettingsActivity" />
-
-        <activity
             android:label="@string/settingsX"
             android:name=".SettingsActivityX" />
 
