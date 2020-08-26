@@ -30,4 +30,5 @@ dependencies {
 
     implementation project(path: ':prefs-plus')
     implementation project(path: ':prefs-plusx')
+    implementation project(path: ':colorpreference')
 }
