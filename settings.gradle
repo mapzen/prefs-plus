@@ -1,3 +1,4 @@
+include ':colorpreference'
 include ':prefs-plus'
 include ':prefs-plusx'
 include ':prefs-plus-demo'
