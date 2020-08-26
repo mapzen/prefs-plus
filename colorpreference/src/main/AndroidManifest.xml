@@ -1,4 +1,5 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.kizitonwose.colorpreference">
+<manifest package="com.kizitonwose.colorpreference">
+
+    <application />
 
 </manifest>
