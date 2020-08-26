@@ -15,7 +15,7 @@ import static android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL;
  * {@link android.preference.DialogPreference} that saves float values to
  * {@link android.content.SharedPreferences}.
  */
-public class EditFloatPreference extends AbstractFloatPreference {
+public class EditFloatPreference extends EditTextPlusPreference {
     public static final String TAG = EditFloatPreference.class.getSimpleName();
 
     public EditFloatPreference(Context context) {

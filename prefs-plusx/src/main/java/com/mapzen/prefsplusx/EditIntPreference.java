@@ -7,6 +7,7 @@ import android.util.Log;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
+import androidx.preference.EditTextPreference;
 
 import static android.text.InputType.TYPE_CLASS_NUMBER;
 
@@ -14,7 +15,7 @@ import static android.text.InputType.TYPE_CLASS_NUMBER;
  * {@link android.preference.DialogPreference} that saves integer values to
  * {@link android.content.SharedPreferences}.
  */
-public class EditIntPreference extends AbstractIntPreference {
+public class EditIntPreference extends EditTextPreference {
     public static final String TAG = EditIntPreference.class.getSimpleName();
 
     public EditIntPreference(Context context) {
