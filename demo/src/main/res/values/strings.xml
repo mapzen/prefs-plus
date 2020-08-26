@@ -19,4 +19,6 @@
     <string name="text_dialog_title">Enter a string</string>
     <string name="hint">Update current values via Settings</string>
 
+    <string name="color_key">color_key</string>
+
 </resources>

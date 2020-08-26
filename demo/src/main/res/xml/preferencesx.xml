@@ -29,19 +29,12 @@
         android:dialogTitle="@string/text_dialog_title"
         android:defaultValue="@string/text_default_value" />
 
-    <com.mapzen.prefsplusx.EditIntPreference
-        android:key="lol_key1"
-        android:title="lol_title"
-        android:dialogTitle="lol_dia_title"
-        android:defaultValue="0"
-        app:minIntValue="0"
-        app:maxIntValue="100"/>
 
     <com.kizitonwose.colorpreference.ColorPreference
-        android:key="lol_color1"
-        android:title="lol_color1"
-        android:summary="Prefixes,e.g. Dec:,Lat"
-        app:colorShape="circle" />
-
+        android:key="@string/color_key"
+        android:title="@string/color_key"
+        android:summary="Select text background color"
+        app:colorShape="circle"
+        android:defaultValue="@color/DEFAULT_TV_BACKGROUND_COLOR"/>
 
 </androidx.preference.PreferenceScreen>

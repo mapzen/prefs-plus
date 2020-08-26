@@ -74,10 +74,21 @@
         android:textSize="16sp" />
 
     <TextView
+        android:id="@+id/tv_color_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:textSize="16sp"
+        android:text="Example Text with color from settings"/>
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:textStyle="italic"
         android:text="@string/hint" />
+
+
+
 
 </LinearLayout>
