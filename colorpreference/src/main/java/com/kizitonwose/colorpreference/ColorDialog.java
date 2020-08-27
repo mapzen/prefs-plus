@@ -83,6 +83,7 @@ public class ColorDialog extends DialogFragment {
 
     @MainThread
     @Override
+    @NonNull
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
         View rootView = layoutInflater.inflate(R.layout.dialog_colors, null);
