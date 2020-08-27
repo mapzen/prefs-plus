@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,13 +13,14 @@ import androidx.appcompat.app.AppCompatActivity;
  */
 
 public class Utils {
-    @Nullable
+    @NonNull
     public static AppCompatActivity resolveContext(Context context) {
         if (context instanceof Activity) {
             return (AppCompatActivity) context;
         } else if (context instanceof ContextWrapper) {
             return resolveContext(((ContextWrapper) context).getBaseContext());
         }
-        return null;
+        // How should this ever happen ?
+        throw new RuntimeException("Cannot get context");
     }
 }

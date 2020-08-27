@@ -14,7 +14,9 @@ import android.widget.ImageView;
 
 import androidx.annotation.ArrayRes;
 import androidx.annotation.ColorInt;
+import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 
@@ -68,7 +70,7 @@ public class ColorDialog extends DialogFragment {
     }
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
 
         if (context instanceof OnColorSelectedListener) {
@@ -79,8 +81,9 @@ public class ColorDialog extends DialogFragment {
 
     }
 
+    @MainThread
     @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
+    public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
         View rootView = layoutInflater.inflate(R.layout.dialog_colors, null);
 

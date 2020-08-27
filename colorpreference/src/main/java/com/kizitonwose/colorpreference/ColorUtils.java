@@ -50,6 +50,9 @@ public class ColorUtils {
             BitmapDrawable checkmark = (BitmapDrawable) ResourcesCompat.getDrawable(res,isColorDark(color)
                     ? R.drawable.checkmark_white
                     : R.drawable.checkmark_black,null);
+            if(checkmark==null){
+                throw new RuntimeException("Couldn't get checkmark");
+            }
             checkmark.setGravity(Gravity.CENTER);
             drawable = new LayerDrawable(new Drawable[]{
                     colorChoiceDrawable,
