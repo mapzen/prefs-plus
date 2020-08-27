@@ -38,10 +38,8 @@ public class PrefsPlusActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.settings:
-                onSettingsOptionSelected();
-                break;
+        if (item.getItemId() == R.id.settings) {
+            onSettingsOptionSelected();
         }
 
         return true;

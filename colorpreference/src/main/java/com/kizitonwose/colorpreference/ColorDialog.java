@@ -3,7 +3,6 @@ package com.kizitonwose.colorpreference;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -16,6 +15,8 @@ import android.widget.ImageView;
 import androidx.annotation.ArrayRes;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
+
 
 /**
  * Created by Kizito Nwose on 9/28/2016.
@@ -211,7 +212,7 @@ public class ColorDialog extends DialogFragment {
 
         public ColorDialog show() {
             ColorDialog dialog = build();
-            dialog.show(Utils.resolveContext(context).getFragmentManager(), tag == null ? String.valueOf(System.currentTimeMillis()) : tag);
+            dialog.show(Utils.resolveContext(context).getSupportFragmentManager(), tag == null ? String.valueOf(System.currentTimeMillis()) : tag);
             return dialog;
         }
 

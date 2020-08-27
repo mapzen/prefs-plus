@@ -1,6 +1,6 @@
 package com.kizitonwose.colorpreference;
 
-import android.app.Activity;
+
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -13,6 +13,8 @@ import android.view.Gravity;
 import android.widget.ImageView;
 
 import androidx.annotation.ArrayRes;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 /**
  * Created by Kizito Nwose on 9/28/2016.
@@ -29,7 +31,8 @@ public class ColorUtils {
             colorChoiceDrawable = (GradientDrawable) currentDrawable;
         } else {
             colorChoiceDrawable = new GradientDrawable();
-            colorChoiceDrawable.setShape(shape == ColorShape.SQUARE ? GradientDrawable.RECTANGLE : GradientDrawable.OVAL);
+            final int wantedGradientDrawableShape=shape==ColorShape.SQUARE ? GradientDrawable.RECTANGLE : GradientDrawable.OVAL;
+            colorChoiceDrawable.setShape(wantedGradientDrawableShape);
         }
 
         // Set stroke to dark version of color
@@ -44,9 +47,9 @@ public class ColorUtils {
 
         Drawable drawable = colorChoiceDrawable;
         if (selected) {
-            BitmapDrawable checkmark = (BitmapDrawable) res.getDrawable(isColorDark(color)
+            BitmapDrawable checkmark = (BitmapDrawable) ResourcesCompat.getDrawable(res,isColorDark(color)
                     ? R.drawable.checkmark_white
-                    : R.drawable.checkmark_black);
+                    : R.drawable.checkmark_black,null);
             checkmark.setGravity(Gravity.CENTER);
             drawable = new LayerDrawable(new Drawable[]{
                     colorChoiceDrawable,
@@ -86,16 +89,16 @@ public class ColorUtils {
         ColorDialog fragment = ColorDialog.newInstance(numColumns, colorShape, colorChoices, selectedColorValue);
         fragment.setOnColorSelectedListener(listener);
 
-        Activity activity = Utils.resolveContext(context);
-        activity.getFragmentManager().beginTransaction()
+        AppCompatActivity activity = Utils.resolveContext(context);
+        activity.getSupportFragmentManager().beginTransaction()
                 .add(fragment, tag)
                 .commit();
     }
 
     public static void attach(Context context, ColorDialog.OnColorSelectedListener listener, String tag) {
-        Activity activity = Utils.resolveContext(context);
+        AppCompatActivity activity = Utils.resolveContext(context);
         ColorDialog fragment = (ColorDialog) activity
-                .getFragmentManager().findFragmentByTag(tag);
+                .getSupportFragmentManager().findFragmentByTag(tag);
         if (fragment != null) {
             // re-bind preference to fragment
             fragment.setOnColorSelectedListener(listener);

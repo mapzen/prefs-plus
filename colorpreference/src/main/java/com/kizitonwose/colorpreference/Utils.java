@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.ContextWrapper;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * @author Kizito Nwose
@@ -12,9 +13,9 @@ import androidx.annotation.Nullable;
 
 public class Utils {
     @Nullable
-    public static Activity resolveContext(Context context) {
+    public static AppCompatActivity resolveContext(Context context) {
         if (context instanceof Activity) {
-            return (Activity) context;
+            return (AppCompatActivity) context;
         } else if (context instanceof ContextWrapper) {
             return resolveContext(((ContextWrapper) context).getBaseContext());
         }
