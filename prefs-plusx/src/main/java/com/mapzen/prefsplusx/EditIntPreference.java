@@ -1,5 +1,6 @@
 package com.mapzen.prefsplusx;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -52,9 +53,16 @@ public class EditIntPreference extends EditTextPreference {
         });
     }
 
+    @SuppressLint("ApplySharedPref")
     @Override
     protected String getPersistedString(String defaultReturnValue) {
         if(getSharedPreferences().contains(getKey())) {
+            /*try{
+                getSharedPreferences().getInt(getKey(),0);
+            }catch (ClassCastException e){
+                e.printStackTrace();
+                getSharedPreferences().edit().remove(getKey()).commit();
+            }*/
             int intValue = getPersistedInt(0);
             return String.valueOf(intValue);
         } else {
