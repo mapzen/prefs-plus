@@ -42,7 +42,7 @@ public class EditFloatPreference extends EditTextPreference {
                     attrs, R.styleable.EditIntPreference, defStyle, defStyle);
             minimumValue=a.getFloat(R.styleable.EditFloatPreference_minFloatValue,Float.MIN_VALUE);
             maximumValue=a.getFloat(R.styleable.EditFloatPreference_maxFloatValue,Float.MAX_VALUE);
-            Log.d(TAG,"Min & max"+minimumValue+" "+maximumValue);
+            //Log.d(TAG,"Min & max"+minimumValue+" "+maximumValue);
             a.recycle();
         }
         super.setOnBindEditTextListener(new OnBindEditTextListener() {

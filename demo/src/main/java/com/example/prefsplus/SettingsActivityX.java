@@ -7,6 +7,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceFragmentCompat;
 
+import com.mapzen.prefsplusx.DefaultPreferenceFragment;
+
 /**
  * Settings Activity that uses the new preferences (PreferenceFragmentCompat)
  */
@@ -19,7 +21,7 @@ public class SettingsActivityX extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
         getSupportFragmentManager().beginTransaction().replace(android.R.id.content,
-                new SettingsFragment()).commit();
+                new DefaultPreferenceFragment(R.xml.preferencesx)).commit();
     }
 
     @Override
@@ -32,11 +34,4 @@ public class SettingsActivityX extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public static class SettingsFragment extends PreferenceFragmentCompat {
-
-        @Override
-        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-            setPreferencesFromResource(R.xml.preferencesx, rootKey);
-        }
-    }
 }
