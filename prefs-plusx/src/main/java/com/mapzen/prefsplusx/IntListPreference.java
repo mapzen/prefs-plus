@@ -13,7 +13,16 @@ import java.util.Arrays;
 /**
  * {@link androidx.preference.ListPreference} that saves integer values to
  * {@link android.content.SharedPreferences}.
+ * Do not forget to set the entry values in your xml file, example:
+ * android:entries="@array/int_list_entries"
+ * By default, each entry of this array maps to the integer value it can be indexed with -
+ * For example, entry 0 maps to '0', entry 1 maps to '1' and so on
+ * However, you can also specify the entry values manually - for example, element 0 should map to '100' or similar
+ * In this case use
+ * android:entryValues="@array/int_list_values"
+ * In the old variant from mapzen, you'd have to always declare both the entries and entryValue array
  */
+
 public class IntListPreference extends ListPreference {
     public static final String TAG = IntListPreference.class.getSimpleName();
 
@@ -30,6 +39,12 @@ public class IntListPreference extends ListPreference {
     // If there are no entry values set populate it with a default array that holds
     // as many entries as the entry array and maps element 0 -> 0, element 1 -> 1 and more
     private void setDefaultEntryValuesIfNull(){
+        if(getEntries()==null){
+            // You probably forgot to set the entry values
+            // example,in your xml,do :  android:entries="@array/int_list_entries"
+            // mapzen's version would also crash in this case
+            throw new RuntimeException("List preference has no entries");
+        }
         /*if(getEntryValues()!=null){
             Log.d(TAG,"Has entry values "+ Arrays.toString(getEntryValues()));
         }else{
@@ -37,11 +52,6 @@ public class IntListPreference extends ListPreference {
         }*/
         if(getEntryValues()==null){
             //Log.d(TAG,"Setting default entry values");
-            if(getEntries()==null){
-                // You probably forgot to set the entry values
-                // example,in your xml,do :  android:entries="@array/int_list_entries"
-                throw new RuntimeException("List preference has no entries");
-            }
             final int size=getEntries().length;
             CharSequence[] defaultEntryValues =new CharSequence[size];
             for(int i=0;i<size;i++){
