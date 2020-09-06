@@ -26,6 +26,8 @@ public class IntListPreference extends ListPreference {
         setDefaultEntryValuesIfNull();
     }
 
+    // If there are no entry values set populate it with a default array that holds
+    // as many entries as the entry array and maps element 0 -> 0, element 1 -> 1 and more
     private void setDefaultEntryValuesIfNull(){
         if(getEntryValues()==null){
             //Log.d(TAG,"Setting default entry values");
