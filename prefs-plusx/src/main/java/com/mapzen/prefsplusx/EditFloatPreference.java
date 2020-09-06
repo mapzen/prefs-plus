@@ -88,4 +88,9 @@ public class EditFloatPreference extends EditTextPreference {
     protected Object onGetDefaultValue(TypedArray a, int index) {
         return Float.valueOf(a.getString(index)).toString();
     }
+
+    /*@Override
+    public boolean shouldDisableDependents(){
+        return super.shouldDisableDependents();
+    }*/
 }

@@ -18,10 +18,27 @@ public class IntListPreference extends ListPreference {
 
     public IntListPreference(Context context) {
         super(context);
+        setDefaultEntryValuesIfNull();
     }
 
     public IntListPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
+        setDefaultEntryValuesIfNull();
+    }
+
+    private void setDefaultEntryValuesIfNull(){
+        if(getEntryValues()==null){
+            //Log.d(TAG,"Setting default entry values");
+            if(getEntries()==null){
+                Log.w(TAG,"No entries - will crash");
+            }
+            final int size=getEntries().length;
+            CharSequence[] defaultEntryValues =new CharSequence[size];
+            for(int i=0;i<size;i++){
+                defaultEntryValues[i]=Integer.toString(i);
+            }
+            setEntryValues(defaultEntryValues);
+        }
     }
 
     @Override
