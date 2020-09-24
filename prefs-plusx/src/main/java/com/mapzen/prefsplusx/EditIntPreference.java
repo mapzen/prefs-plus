@@ -10,6 +10,8 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.preference.EditTextPreference;
 
+import java.util.Objects;
+
 import static android.text.InputType.TYPE_CLASS_NUMBER;
 
 /**
@@ -20,6 +22,8 @@ public class EditIntPreference extends EditTextPreference {
     public static final String TAG = EditIntPreference.class.getSimpleName();
     private int minimumValue=Integer.MIN_VALUE;
     private int maximumValue=Integer.MAX_VALUE;
+    // True if a custom range (aka min / max value) has been set
+    private boolean hasCustomAllowedRange=false;
 
     public EditIntPreference(Context context) {
         super(context);
@@ -40,9 +44,16 @@ public class EditIntPreference extends EditTextPreference {
         if(attrs!=null){
             TypedArray a = getContext().getTheme().obtainStyledAttributes(
                     attrs, R.styleable.EditIntPreference, defStyle, defStyle);
-            minimumValue=a.getInteger(R.styleable.EditIntPreference_minIntValue,Integer.MIN_VALUE);
-            maximumValue=a.getInteger(R.styleable.EditIntPreference_maxIntValue,Integer.MAX_VALUE);
-            //Log.d(TAG,"Min & max"+minimumValue+" "+maximumValue);
+            final boolean minValueSet=a.hasValue(R.styleable.EditIntPreference_minIntValue);
+            final boolean maxValueSet=a.hasValue(R.styleable.EditIntPreference_maxIntValue);
+            //if(minValueSet!=maxValueSet)
+            //    throw new RuntimeException("Make Sure to declare both a minimum and maximum value when using a custom Range");
+            if(minValueSet && maxValueSet){
+                minimumValue=a.getInteger(R.styleable.EditIntPreference_minIntValue,Integer.MIN_VALUE);
+                maximumValue=a.getInteger(R.styleable.EditIntPreference_maxIntValue,Integer.MAX_VALUE);
+                hasCustomAllowedRange=true;
+                Log.d(TAG,"has custom allowed range "+getAllowedRangeReadable());
+            }
             a.recycle();
         }
         super.setOnBindEditTextListener(new OnBindEditTextListener() {
@@ -51,6 +62,10 @@ public class EditIntPreference extends EditTextPreference {
                 editText.setRawInputType(TYPE_CLASS_NUMBER);
             }
         });
+    }
+
+    private String getAllowedRangeReadable(){
+        return "["+minimumValue+",...,"+maximumValue+"]";
     }
 
     @SuppressLint("ApplySharedPref")
@@ -75,16 +90,18 @@ public class EditIntPreference extends EditTextPreference {
         int intValue;
         try {
             intValue = Integer.parseInt(value);
-            if(intValue<minimumValue || intValue>maximumValue){
-                final String allowedRange="["+minimumValue+","+maximumValue+"]";
-                Log.e(TAG, "Value is not in range: "+allowedRange+" " + value);
-                setSummary("Invalid value.Select "+allowedRange);
-                return false;
-            }
         } catch (NumberFormatException e) {
             Log.e(TAG, "Unable to parse preference value: " + value);
             setSummary("Invalid value");
             return false;
+        }
+        if(hasCustomAllowedRange){
+            if(intValue<minimumValue || intValue>maximumValue){
+                final String allowedRange=getAllowedRangeReadable();
+                Log.e(TAG, "Value is not in range: "+allowedRange+" " + value);
+                setSummary("Invalid value. Select "+allowedRange);
+                return false;
+            }
         }
         setSummary(value);
         return persistInt(intValue);
@@ -92,6 +109,7 @@ public class EditIntPreference extends EditTextPreference {
 
     @Override
     protected Object onGetDefaultValue(TypedArray a, int index) {
-        return Integer.decode(a.getString(index)).toString();
+        return Integer.decode(Objects.requireNonNull(a.getString(index))).toString();
     }
+
 }

@@ -7,7 +7,9 @@
         android:key="@string/integer_key"
         android:title="@string/integer_title"
         android:dialogTitle="@string/integer_dialog_title"
-        android:defaultValue="@integer/integer_default_value" />
+        android:defaultValue="@integer/integer_default_value"
+        app:minIntValue="-100"
+        app:maxIntValue="100"/>
 
     <com.mapzen.prefsplusx.EditFloatPreference
         android:key="@string/float_key"
@@ -15,8 +17,7 @@
         android:dialogTitle="@string/float_dialog_title"
         android:defaultValue="@integer/float_default_value"
         app:minFloatValue="-100.0"
-        app:maxFloatValue="100.0"
-        />
+        app:maxFloatValue="100.0" />
 
     <com.mapzen.prefsplusx.IntListPreference
         android:key="@string/integer_list_key"

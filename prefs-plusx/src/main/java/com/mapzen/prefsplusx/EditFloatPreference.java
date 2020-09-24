@@ -9,6 +9,8 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.preference.EditTextPreference;
 
+import java.util.Objects;
+
 import static android.text.InputType.TYPE_CLASS_NUMBER;
 import static android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL;
 
@@ -20,7 +22,8 @@ public class EditFloatPreference extends EditTextPreference {
     public static final String TAG = EditFloatPreference.class.getSimpleName();
     private float minimumValue=Float.MIN_VALUE;
     private float maximumValue=Float.MAX_VALUE;
-    private boolean hasCustomMinMaxValue=false;
+    // True if a custom range (aka min / max value) has been set
+    private boolean hasCustomAllowedRange=false;
 
     public EditFloatPreference(Context context) {
         super(context);
@@ -41,14 +44,14 @@ public class EditFloatPreference extends EditTextPreference {
         if(attrs!=null){
             TypedArray a = getContext().getTheme().obtainStyledAttributes(
                     attrs, R.styleable.EditIntPreference, defStyle, defStyle);
-            if(a.hasValue(R.styleable.EditFloatPreference_minFloatValue) && a.hasValue(R.styleable.EditFloatPreference_maxFloatValue)){
-                Log.d(TAG,"has value lol");
-            }else{
-                Log.d(TAG,"has no value lol");
+            final boolean minValueSet=a.hasValue(R.styleable.EditFloatPreference_minFloatValue);
+            final boolean maxValueSet=a.hasValue(R.styleable.EditFloatPreference_maxFloatValue);
+            if(minValueSet && maxValueSet){
+                minimumValue=a.getFloat(R.styleable.EditFloatPreference_minFloatValue,Float.MIN_VALUE);
+                maximumValue=a.getFloat(R.styleable.EditFloatPreference_maxFloatValue,Float.MAX_VALUE);
+                hasCustomAllowedRange=true;
+                Log.d(TAG,"has custom allowed range "+getAllowedRangeReadable());
             }
-            minimumValue=a.getFloat(R.styleable.EditFloatPreference_minFloatValue,Float.MIN_VALUE);
-            maximumValue=a.getFloat(R.styleable.EditFloatPreference_maxFloatValue,Float.MAX_VALUE);
-            Log.d(TAG,"Min & max"+minimumValue+" "+maximumValue);
             a.recycle();
         }
         super.setOnBindEditTextListener(new OnBindEditTextListener() {
@@ -57,6 +60,10 @@ public class EditFloatPreference extends EditTextPreference {
                 editText.setRawInputType(TYPE_CLASS_NUMBER | TYPE_NUMBER_FLAG_DECIMAL);
             }
         });
+    }
+
+    private String getAllowedRangeReadable(){
+        return "["+minimumValue+",...,"+maximumValue+"]";
     }
 
     @Override
@@ -74,31 +81,33 @@ public class EditFloatPreference extends EditTextPreference {
         float floatValue;
         try {
             floatValue = Float.parseFloat(value);
-            if(floatValue<minimumValue || floatValue>maximumValue){
-                final String allowedRange="["+minimumValue+","+maximumValue+"]";
-                Log.e(TAG, "Value is not in range: "+allowedRange+" " + value);
-                setSummary("Invalid value.Select "+allowedRange);
-                return false;
-            }
         } catch (NumberFormatException e) {
             Log.e(TAG, "Unable to parse preference value: " + value);
             setSummary("Invalid value");
             return false;
         }
-        if(minimumValue!= Float.MIN_VALUE && maximumValue !=Float.MAX_VALUE){
-            final String allowedRange="["+minimumValue+","+maximumValue+"]";
+        if(hasCustomAllowedRange){
+            if(floatValue<minimumValue || floatValue>maximumValue){
+                final String allowedRange=getAllowedRangeReadable();
+                Log.e(TAG, "Value is not in range: "+allowedRange+" " + value);
+                setSummary("Invalid value. Select "+allowedRange);
+                return false;
+            }
+        }
+        setSummary(Float.toString(floatValue));
+         /*if(minimumValue!= Float.MIN_VALUE && maximumValue !=Float.MAX_VALUE){
+            final String allowedRange=getAllowedRangeReadable();
             setSummary(Float.toString(floatValue)+" "+allowedRange);
         }else{
             setSummary(Float.toString(floatValue));
-        }
+        }*/
         return persistFloat(floatValue);
     }
 
     @Override
     protected Object onGetDefaultValue(TypedArray a, int index) {
-        return Float.valueOf(a.getString(index)).toString();
+        return Float.valueOf(Objects.requireNonNull(a.getString(index))).toString();
     }
-
     /*@Override
     public boolean shouldDisableDependents(){
         return super.shouldDisableDependents();
