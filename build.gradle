@@ -26,6 +26,7 @@ allprojects {
         targetSdkVersion = 29
         versionCode=1
         versionName="1.0"
+        androidxpreferenceVersion='1.1.1'
     }
 }
 
