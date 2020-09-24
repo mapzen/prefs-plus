@@ -13,7 +13,7 @@ import java.util.Arrays;
 /**
  * {@link androidx.preference.ListPreference} that saves integer values to
  * {@link android.content.SharedPreferences}.
- * Do not forget to set the entry values in your xml file, example:
+ * Do not forget to set the entries in your xml file, example:
  * android:entries="@array/int_list_entries"
  * By default, each entry of this array maps to the integer value it can be indexed with -
  * For example, entry 0 maps to '0', entry 1 maps to '1' and so on
@@ -40,9 +40,9 @@ public class IntListPreference extends ListPreference {
     // as many entries as the entry array and maps element 0 -> 0, element 1 -> 1 and more
     private void setDefaultEntryValuesIfNull(){
         if(getEntries()==null){
-            // You probably forgot to set the entry values
+            // You probably forgot to set the entries
             // example,in your xml,do :  android:entries="@array/int_list_entries"
-            // mapzen's version would also crash in this case
+            // mapzen's version would also crash in this case,but here we generate the proper message for the developer
             throw new RuntimeException("List preference has no entries");
         }
         /*if(getEntryValues()!=null){

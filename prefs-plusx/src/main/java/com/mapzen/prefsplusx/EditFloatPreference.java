@@ -20,6 +20,7 @@ public class EditFloatPreference extends EditTextPreference {
     public static final String TAG = EditFloatPreference.class.getSimpleName();
     private float minimumValue=Float.MIN_VALUE;
     private float maximumValue=Float.MAX_VALUE;
+    private boolean hasCustomMinMaxValue=false;
 
     public EditFloatPreference(Context context) {
         super(context);
@@ -40,9 +41,14 @@ public class EditFloatPreference extends EditTextPreference {
         if(attrs!=null){
             TypedArray a = getContext().getTheme().obtainStyledAttributes(
                     attrs, R.styleable.EditIntPreference, defStyle, defStyle);
+            if(a.hasValue(R.styleable.EditFloatPreference_minFloatValue) && a.hasValue(R.styleable.EditFloatPreference_maxFloatValue)){
+                Log.d(TAG,"has value lol");
+            }else{
+                Log.d(TAG,"has no value lol");
+            }
             minimumValue=a.getFloat(R.styleable.EditFloatPreference_minFloatValue,Float.MIN_VALUE);
             maximumValue=a.getFloat(R.styleable.EditFloatPreference_maxFloatValue,Float.MAX_VALUE);
-            //Log.d(TAG,"Min & max"+minimumValue+" "+maximumValue);
+            Log.d(TAG,"Min & max"+minimumValue+" "+maximumValue);
             a.recycle();
         }
         super.setOnBindEditTextListener(new OnBindEditTextListener() {
@@ -79,8 +85,12 @@ public class EditFloatPreference extends EditTextPreference {
             setSummary("Invalid value");
             return false;
         }
-
-        setSummary(Float.toString(floatValue));
+        if(minimumValue!= Float.MIN_VALUE && maximumValue !=Float.MAX_VALUE){
+            final String allowedRange="["+minimumValue+","+maximumValue+"]";
+            setSummary(Float.toString(floatValue)+" "+allowedRange);
+        }else{
+            setSummary(Float.toString(floatValue));
+        }
         return persistFloat(floatValue);
     }
 

@@ -13,15 +13,18 @@
         android:key="@string/float_key"
         android:title="@string/float_title"
         android:dialogTitle="@string/float_dialog_title"
-        android:defaultValue="@integer/float_default_value" />
+        android:defaultValue="@integer/float_default_value"
+        app:minFloatValue="-100.0"
+        app:maxFloatValue="100.0"
+        />
 
     <com.mapzen.prefsplusx.IntListPreference
         android:key="@string/integer_list_key"
         android:title="@string/integer_list_title"
         android:dialogTitle="@string/integer_list_dialog_title"
         android:entries="@array/int_list_entries"
-        android:entryValues="@array/int_list_values"
-        android:defaultValue="@integer/integer_list_default_value" />
+        android:defaultValue="@integer/integer_list_default_value"/>
+    <!--optional android:entryValues="@array/int_list_entry_values"-->
 
     <com.mapzen.prefsplusx.EditTextPlusPreference
         android:key="@string/text_key"
