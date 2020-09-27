@@ -50,6 +50,7 @@ public class IntListPreference extends ListPreference {
         }else{
             Log.d(TAG,"Has no entry values");
         }*/
+        // If no custom entry values are set use the default mapping
         if(getEntryValues()==null){
             //Log.d(TAG,"Setting default entry values");
             final int size=getEntries().length;
