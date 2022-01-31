@@ -13,7 +13,7 @@ group = 'com.github.Consti10'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
-    buildToolsVersion "30.0.2"
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         minSdkVersion rootProject.minSdkVersion
